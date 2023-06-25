@@ -123,6 +123,11 @@ Moreover, the below views are login required. If the request is unauthenticated,
 
   Your code must infer the owner of the new account from the current logged-in user of the session. Therefore, you must not include an owner field in your form.
   bank_id is the ID of the newly-created bank.
+
+#### My form screenshot:
+
+<img src="media/register bank example.png" align="center" >
+  
 ---
   
 - Endpoint: ```/banks/<bank_id>/branches/add/```
@@ -169,7 +174,7 @@ Now, it is time for some CRUD views for banks. These views should be accessible 
     </html>
     ```
 
-My example page:
+#### My example page:
 
 
 <img src="media/List of banks example.png" align="center" >
