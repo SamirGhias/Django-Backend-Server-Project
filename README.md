@@ -1,5 +1,5 @@
 # Django-Backend-Server-Project
-Django Server Assignment for Users, Banks, and Branches. Implemented Login, Authentication, Form Validation, and CRUD views/ API Endpoints w/ Basic Front-End.
+CSC309 Django Server Assignment for Users, Banks, and Branches. Implemented Login, Authentication, Form Validation, and CRUD views/ API Endpoints w/ Basic Front-End.
 
 In this assignment, I created a small Django application. Since it was an educational assignment, the overall goal was to obtain initial experience in backend development and Django.
 I will be detailing the requirements and features outlined in the handout to show what I have experience with.
@@ -176,6 +176,8 @@ Now, it is time for some CRUD views for banks. These views should be accessible 
   Description: An HTML response must be returned that contains the information of a specific bank (or a 404 NOT FOUND if it does not exist) and some info about its branches. The bank information to be shown is the bank name (wrapped by an \<h1>), its description, swift code, institution number, and its branches. Display the branch information in a table, where each row contains a branch's name, transit number, and address. If the bank does not have any branches, include ```No branch found``` in your HTML response.
 
   Example response (rendered): Note that in this part, and only this part, we only check values and ignore the labels. So it does not matter if you use different labels or structure your HTML differently, as long as they comply with the above description.
+
+<img src="media/"></img>
 
 # Section 5: Branching
 
