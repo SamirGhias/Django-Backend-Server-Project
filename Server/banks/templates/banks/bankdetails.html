@@ -1,0 +1,28 @@
+ <html>
+    <body>
+    <h1>{{bank.name}}</h1>
+    <h3>{{bank.description}}</h3>
+    <h5>Swift code: {{bank.swift_code}}</h5>
+    <h5>Inst number: {{bank.inst_num}}</h5>
+    <h5>Branches:</h5>
+    {% if branches %}
+    <table>
+        <tr>
+            <th>name</th>
+            <th>transit number</th>
+            <th>address</th>
+        </tr>
+            {% for branch in branches %}
+        <tr>
+            <th>{{ branch.name }}</th>
+            <th>{{ branch.transit_num }}</th>
+            <th>{{ branch.address }}</th>
+         </tr>
+            {% endfor %}
+
+     </table>
+    {% else %}
+            No branch found
+    {% endif %}
+    </body>
+    </html>
