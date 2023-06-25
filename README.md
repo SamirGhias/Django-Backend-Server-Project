@@ -1,4 +1,4 @@
-# Django-Backend-Server-Project
+# Django Backend Server Project
 CSC309 Django Server Assignment for Users, Banks, and Branches. Implemented Login, Authentication, Form Validation, and CRUD views/ API Endpoints w/ Basic Front-End.
 
 In this assignment, I created a small Django application. Since it was an educational assignment, the overall goal was to obtain initial experience in backend development and Django.
@@ -168,6 +168,13 @@ Now, it is time for some CRUD views for banks. These views should be accessible 
     </body>
     </html>
     ```
+
+My example page:
+
+
+<img src="media/List of banks example.png" align="center" >
+
+
   ---
 - Endpoint: ```/banks/<bank_id>/details/```
 
@@ -177,7 +184,7 @@ Now, it is time for some CRUD views for banks. These views should be accessible 
 
   Example response (rendered): Note that in this part, and only this part, we only check values and ignore the labels. So it does not matter if you use different labels or structure your HTML differently, as long as they comply with the above description.
 
-<img src="media/"></img>
+<img src="media/digital banking example.png" align="center" >
 
 # Section 5: Branching
 
