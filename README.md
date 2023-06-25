@@ -155,7 +155,7 @@ Now, it is time for some CRUD views for banks. These views should be accessible 
 
   Description: An HTML response must be returned that lists all banks. The page should show the name and institution number of each bank in an unordered list (separated by space), where each name links to the details page of the corresponding bank.
 
-  Example response (source): The auto tester will only check the <ul> tag's content, so feel free to modify the rest of the HTML in any way.
+  Example response (source): The auto tester will only check the \<ul> tag's content, so feel free to modify the rest of the HTML in any way.
     ```
     <html>
     <body>
