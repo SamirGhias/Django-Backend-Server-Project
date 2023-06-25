@@ -145,5 +145,87 @@ Moreover, the below views are login required. If the request is unauthenticated,
   - The user must be the owner of the corresponding bank; otherwise, a 403 FORBIDDEN must be returned (both GET and POST). In other words, users must not be able to add a branch to someone else's bank.
   - The ```branch_id``` in the success URL is the ID of the newly-created branch.
 
+# Section 4: Digital banking
+
+Now, it is time for some CRUD views for banks. These views should be accessible by everyone, even unauthenticated requests.
+
+- Endpoint: ```/banks/all/```
+
+  Methods: ```GET```
+
+  Description: An HTML response must be returned that lists all banks. The page should show the name and institution number of each bank in an unordered list (separated by space), where each name links to the details page of the corresponding bank.
+
+  Example response (source): The auto tester will only check the <ul> tag's content, so feel free to modify the rest of the HTML in any way.
+    ```
+    <html>
+    <body>
+     List of banks
+     <ul>
+      <li><a href="/banks/1/details">CIBC</a> 010</li>
+      <li><a href="/banks/2/details">BMO</a> 001</li>
+      <li><a href="/banks/3/details">TD</a> 004</li>
+     </ul>
+    </body>
+    </html>
+    ```
+  ---
+- Endpoint: ```/banks/<bank_id>/details/```
+
+  Methods: ```GET```
+
+  Description: An HTML response must be returned that contains the information of a specific bank (or a 404 NOT FOUND if it does not exist) and some info about its branches. The bank information to be shown is the bank name (wrapped by an \<h1>), its description, swift code, institution number, and its branches. Display the branch information in a table, where each row contains a branch's name, transit number, and address. If the bank does not have any branches, include ```No branch found``` in your HTML response.
+
+  Example response (rendered): Note that in this part, and only this part, we only check values and ignore the labels. So it does not matter if you use different labels or structure your HTML differently, as long as they comply with the above description.
+
+# Section 5: Branching
+
+Finally, we end this assignment with some branch CRUD views. Both views are authenticated, meaning that you should return 401 UNAUTHORIZED if the user is not logged in. Using a FormView for the second view is recommended.
+
+- Endpoint: ```/banks/branch/<branch_id>/details/```
+
+    Methods: ```GET```
+
+    Description: A JSON response that returns the detailed info of a branch (or a 404 NOT FOUND if it does not exist). Note that the entire HTTP response is a JSON string.
+
+    Fields: ```id```, ```name```, ```transit_num```, ```address```, ```email```, ```capacity```, ```last_modified```
+
+    Example response:
+
+    ```{"id": 1, "name": "jkl", "transit_num": "12", "address": "jlk", "email": "admin@utoronto.ca", "capacity": 12, "last_modified": "2022-01-08T22:30:40.419Z"}```
+
+---
+- Endpoint: ```/banks/branch/<branch_id>/edit/```
+
+  Methods: ```GET, POST```
+
+  Fields/payload: ```name, transit_num, address, email, capacity```
+
+  Success URL: ```/banks/branch/<branch_id>/details/```
+
+  Validation errors:
+  - ```This field is required``` (for all fields except for capacity)
+  - If a field's input has more than 100 characters, put the following error above that field: ```Ensure this value has at most 100 characters (it has <X>)```, where <X> is the current input's length. This applies to all fields except for email and capacity.
+  - If capacity is negative, put ```Ensure this value is greater than or equal to 0``` above it.
+  - ```Enter a valid email address```
+  
+
+  Additional notes:
+  - The form must be pre-filled with the current values of the branch instance.
+  - The branch's bank is not changeable; hence it should not be a part of the form.
+  - The user must be the owner of the corresponding bank; otherwise, a 403 FORBIDDEN response must be returned (both GET and POST). In other words, users must not be able to modify someone else's branches.
+
+--- 
+# Tester for Correctness
+A tester is provided to you that runs some basic checks on my project. For example, it checks the endpoints and sends some simple requests to them.
+
+### Here the instructions on running the pre-tests here:
+File: a2-pretester.py
+
+### How to run:
+```pip install requests or python3 -m pip install requests
+python3 a2-pretester.py
+```
+
+### Assignment grade after submission: 97/100.
 
 
